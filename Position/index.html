@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Position</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: cursive;
+        }
+        .container{
+            width: 80%;
+            margin-top: 20px;
+            border: 3px solid black;
+            border-radius: 20px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .positionContainer{
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            margin: auto;
+            background-color: gainsboro;
+            margin :15px 0px;
+            border-radius: inherit;
+        }
+
+        .box{
+            width: 150px;
+            height: 150px;
+            border: 3px solid black;
+            margin: 15px;
+        }
+        .box1{
+            background-color: cadetblue;
+        }
+        .box2{
+            background-color: aqua;
+        }
+        .box3{
+            background-color: blueviolet;
+        }
+
+        .btnContainer{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn{
+            padding: 10px;
+            background-color: black;
+            color: white;
+            transition: 1s;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-size: 25px;
+        }
+        .btn:hover{
+            background-color: white;
+            color: black;
+            border: 2px solid white;
+        }
+
+        .absoluteBox{
+            position: absolute;
+            top : 60px;
+        }
+        .relativeBox{
+            position: relative;
+            top : 20px;
+        }
+        .staticBox{
+            position: static;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container" >
+        <div class="positionContainer" >
+            <div class="box box1" ></div>
+            <div class="box box2" id="targetBox" ></div>
+            <div class="box box3" ></div>
+        </div>
+        <div class="content">
+
+        </div>
+        <div class="btnContainer" >
+            <button class="btn" onclick="static()" >Static</button>
+            <button class="btn" onclick="absolute()" >Absolute</button>
+            <button class="btn" >Relative</button>
+            <button class="btn" >Sticky</button>
+            <button class="btn" >Fixed</button>
+        </div>
+        <script>
+            const box = document.getElementById("targetBox")
+            function absolute(){
+                console.log(box.classList);
+                // alert(box.classList.length);
+                if(box.classList.length > 2)
+                {
+                    box.classList.remove("absoluteBox");
+                }
+                else
+                {
+                    box.classList.add("absoluteBox");
+                }
+            }
+            function static(){
+                console.log(box.classList);
+                if(box.classList.length > 2)
+                {
+                    box.classList.remove("staticBox");
+                }
+                else{
+                    box.classList.add("staticBox");
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
